@@ -1,0 +1,1 @@
+In this exercise, the reader looks into how transforming the bones on the skeleton of our character can affect how animations look. These animation assets should be included when the reader creates the template project, but just in case, they are provided here.
