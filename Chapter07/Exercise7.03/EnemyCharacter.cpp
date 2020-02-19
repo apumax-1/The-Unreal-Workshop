@@ -13,8 +13,6 @@ AEnemyCharacter::AEnemyCharacter()
  	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
-	SightSource = CreateDefaultSubobject<USceneComponent>(TEXT("Sight Source"));
-	SightSource->SetupAttachment(RootComponent);
 }
 
 // Called when the game starts or when spawned
@@ -60,10 +58,8 @@ bool AEnemyCharacter::CanSeeActor(AActor * TargetActor)
 	FHitResult Hit;
 
 	// Where the Line Trace starts and ends
-	FVector Start = SightSource->GetComponentLocation();
+	FVector Start = GetActorLocation();
 	FVector End = TargetActor->GetActorLocation();
-
-	UE_LOG(LogTemp, Warning, TEXT(""), *Start.ToString());
 
 	// The trace channel we want to compare against
 	ECollisionChannel Channel = ECollisionChannel::ECC_GameTraceChannel1;
