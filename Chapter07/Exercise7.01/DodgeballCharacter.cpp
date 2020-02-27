@@ -67,6 +67,29 @@ void ADodgeballCharacter::SetupPlayerInputComponent(class UInputComponent* Playe
 
 	PlayerInputComponent->BindAxis("MoveForward", this, &ADodgeballCharacter::MoveForward);
 	PlayerInputComponent->BindAxis("MoveRight", this, &ADodgeballCharacter::MoveRight);
+
+	// handle touch devices
+	PlayerInputComponent->BindTouch(IE_Pressed, this, &ADodgeballCharacter::TouchStarted);
+	PlayerInputComponent->BindTouch(IE_Released, this, &ADodgeballCharacter::TouchStopped);
+
+	// VR headset functionality
+	PlayerInputComponent->BindAction("ResetVR", IE_Pressed, this, &ADodgeballCharacter::OnResetVR);
+}
+
+
+void ADodgeballCharacter::OnResetVR()
+{
+	UHeadMountedDisplayFunctionLibrary::ResetOrientationAndPosition();
+}
+
+void ADodgeballCharacter::TouchStarted(ETouchIndex::Type FingerIndex, FVector Location)
+{
+	Jump();
+}
+
+void ADodgeballCharacter::TouchStopped(ETouchIndex::Type FingerIndex, FVector Location)
+{
+	StopJumping();
 }
 
 void ADodgeballCharacter::MoveForward(float Value)
