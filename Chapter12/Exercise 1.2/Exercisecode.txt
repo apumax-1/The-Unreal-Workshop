@@ -1,3 +1,0 @@
-This activity requires that the player use the provided .uassets to preview the skeleton of the default mannequin that is provided with the Side Scroller template project. These assets should be included when the reader creates the template project, but just in case, they are provided here.
-
-The reader in this activity previews the skeleton and learns about how skeletons work inside of Unreal Engine 4 and how they are used for Animation.
