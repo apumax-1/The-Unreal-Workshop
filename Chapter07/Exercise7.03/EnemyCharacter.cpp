@@ -28,7 +28,7 @@ void AEnemyCharacter::Tick(float DeltaTime)
 	Super::Tick(DeltaTime);
 
 	// Fetch the character currently being controlled by the player
-	ACharacter* PlayerCharacter = UGameplayStatics::GetPlayerCharacter(GetWorld(), 0);
+	ACharacter* PlayerCharacter = UGameplayStatics::GetPlayerCharacter(this, 0);
 
 	// Look at the player character every frame
 	LookAtActor(PlayerCharacter);

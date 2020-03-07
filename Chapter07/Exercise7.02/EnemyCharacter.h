@@ -28,6 +28,6 @@ protected:
 	void LookAtActor(AActor* TargetActor);
 
 	// Can we see the given actor
-	bool CanSeeActor(AActor* TargetActor);
+	bool CanSeeActor(const AActor* TargetActor) const;
 
 };

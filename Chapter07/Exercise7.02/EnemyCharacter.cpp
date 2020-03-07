@@ -34,7 +34,7 @@ void AEnemyCharacter::LookAtActor(AActor * TargetActor)
 	
 }
 
-bool AEnemyCharacter::CanSeeActor(AActor * TargetActor)
+bool AEnemyCharacter::CanSeeActor(const AActor * TargetActor) const
 {
 	if (TargetActor == nullptr) return; 
  
@@ -51,6 +51,8 @@ bool AEnemyCharacter::CanSeeActor(AActor * TargetActor)
 	FCollisionQueryParams QueryParams; 
 	// Ignore the actor that's executing this Line Trace 
 	QueryParams.AddIgnoredActor(this); 
+	// Ignore the target we're checking for
+	QueryParams.AddIgnoredActor(TargetActor);
  
 	// Execute the Line Trace 
 	GetWorld()->LineTraceSingleByChannel(Hit, Start, End, Channel, QueryParams); 
