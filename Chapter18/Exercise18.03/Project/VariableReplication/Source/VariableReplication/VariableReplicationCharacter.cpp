@@ -56,7 +56,7 @@ void AVariableReplicationCharacter::GetLifetimeReplicatedProps(TArray< FLifetime
 
 	DOREPLIFETIME(AVariableReplicationCharacter, A);
 
-	// Variable B should only replicate to it’s owning client
+	// Variable B should only replicate to the owner of this actor
 
 	DOREPLIFETIME_CONDITION(AVariableReplicationCharacter, B, COND_OwnerOnly);
 }
