@@ -2,6 +2,7 @@
 #include "Net/UnrealNetwork.h"
 #include "Camera/CameraComponent.h"
 #include "GameFramework/CharacterMovementComponent.h"
+#include "Kismet/GameplayStatics.h"
 
 AFPSCharacter::AFPSCharacter()
 {
@@ -24,6 +25,8 @@ AFPSCharacter::AFPSCharacter()
 void AFPSCharacter::BeginPlay()
 {
 	Super::BeginPlay();
+
+	UGameplayStatics::PlaySound2D(GetWorld(), SpawnSound);
 
 	// Only the authority can go from this point on
 

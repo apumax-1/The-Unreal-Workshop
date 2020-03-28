@@ -35,6 +35,11 @@ protected:
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "FPS Character")
 	float ArmorAbsorption = 0.5;
 
+	// Sounds
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "FPS Character")
+	USoundBase* SpawnSound;
+
 	// Constructor and overrided
 
 	AFPSCharacter();
