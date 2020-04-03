@@ -19,7 +19,8 @@ enum class EWeaponFireMode : uint8
 UENUM()
 enum class EAmmoType : uint8
 {
-	Bullets,
+	PistolBullets,
+	MachineGunBullets,
 	Slugs,
 	MAX
 };

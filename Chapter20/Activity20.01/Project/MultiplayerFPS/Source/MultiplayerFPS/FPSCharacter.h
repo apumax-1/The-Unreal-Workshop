@@ -68,6 +68,16 @@ protected:
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "FPS Character")
 	USoundBase* WeaponChangeSound;
 
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "FPS Character")
+	USoundBase* PainSound;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "FPS Character")
+	USoundBase* LandSound;
+
+	// Game Mode
+
+	class AMultiplayerFPSGameModeBase* GameMode;
+
 	// Constructor and overrided
 
 	AFPSCharacter();
@@ -75,6 +85,12 @@ protected:
 	virtual void BeginPlay() override;
 
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
+
+	virtual void EndPlay(const EEndPlayReason::Type EndPlayReason) override;
+
+	virtual void FellOutOfWorld(const UDamageType& DmgType) override;
+
+	virtual void Landed(const FHitResult& Hit) override;
 
 	// Input
 
@@ -84,7 +100,7 @@ protected:
 	void OnReleasedFire();
 
 	void OnPressedPistol();
-	
+
 	void OnPressedMachineGun();
 
 	void OnPressedRailgun();
@@ -92,12 +108,14 @@ protected:
 	void OnPressedPreviousWeapon();
 	void OnPressedNextWeapon();
 
+	void OnPressedScoreboard();
+
 	void OnAxisMoveForward(float Value);
 	void OnAxisMoveRight(float Value);
 	void OnAxisLookUp(float Value);
 	void OnAxisTurn(float Value);
 
-	// Server RPCs
+	// RPCs
 
 	UFUNCTION(Server, Reliable)
 	void ServerCycleWeapons(int32 Direction);

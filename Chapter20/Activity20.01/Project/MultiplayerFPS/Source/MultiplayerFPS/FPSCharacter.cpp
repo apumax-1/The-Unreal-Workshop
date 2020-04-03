@@ -3,6 +3,10 @@
 #include "Camera/CameraComponent.h"
 #include "GameFramework/CharacterMovementComponent.h"
 #include "Kismet/GameplayStatics.h"
+#include "Components/CapsuleComponent.h"
+#include "MultiplayerFPSGameModeBase.h"
+#include "FPSPlayerController.h"
+#include "Weapon.h"
 
 AFPSCharacter::AFPSCharacter()
 {
@@ -59,6 +63,10 @@ void AFPSCharacter::BeginPlay()
 	// Equip the machine gun to make sure there is always an equipped weapon
 
 	EquipWeapon(EWeaponType::MachineGun, false);
+
+	// Save the game mode
+
+	GameMode = Cast<AMultiplayerFPSGameModeBase>(GetWorld()->GetAuthGameMode());
 }
 
 void AFPSCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
@@ -78,6 +86,8 @@ void AFPSCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCompon
 	PlayerInputComponent->BindAction("Pistol", IE_Pressed, this, &AFPSCharacter::OnPressedPistol);
 	PlayerInputComponent->BindAction("Machine Gun", IE_Pressed, this, &AFPSCharacter::OnPressedMachineGun);
 	PlayerInputComponent->BindAction("Railgun", IE_Pressed, this, &AFPSCharacter::OnPressedRailgun);
+
+	PlayerInputComponent->BindAction("Scoreboard", IE_Pressed, this, &AFPSCharacter::OnPressedScoreboard);
 
 	// Bind the axis mappings
 
@@ -142,6 +152,16 @@ void AFPSCharacter::OnPressedPreviousWeapon()
 void AFPSCharacter::OnPressedNextWeapon()
 {
 	ServerCycleWeapons(1);
+}
+
+void AFPSCharacter::OnPressedScoreboard()
+{
+	AFPSPlayerController* PlayerController = Cast<AFPSPlayerController>(GetController());
+
+	if (PlayerController != nullptr)
+	{
+		PlayerController->ToggleScoreboard();
+	}
 }
 
 void AFPSCharacter::OnAxisMoveForward(float Value)
@@ -309,4 +329,42 @@ void AFPSCharacter::ApplyDamage(float Damage, AFPSCharacter* DamageCauser)
 	{
 		DamageCauser->ClientPlaySound2D(HitSound);
 	}
+
+	if (IsDead())
+	{
+		if (GameMode != nullptr)
+		{
+			GameMode->OnKill(DamageCauser->GetController(), GetController());
+		}
+	}
+	else ClientPlaySound2D(PainSound);
+}
+
+void AFPSCharacter::FellOutOfWorld(const UDamageType& DmgType)
+{
+	// We don't want to call the parent version because it will immediately destroy the actor. We want to execute the OnKill logic in the game mode.
+
+	if (GameMode != nullptr)
+	{
+		GameMode->OnKill(nullptr, GetController());
+	}
+}
+
+void AFPSCharacter::EndPlay(const EEndPlayReason::Type EndPlayReason)
+{
+	Super::EndPlay(EndPlayReason);
+
+	// Destroy all of the weapons
+
+	for (AWeapon* WeaponToDestroy : Weapons)
+	{
+		WeaponToDestroy->Destroy();
+	}
+}
+
+void AFPSCharacter::Landed(const FHitResult& Hit)
+{
+	Super::Landed(Hit);
+
+	UGameplayStatics::PlaySound2D(GetWorld(), LandSound);
 }
