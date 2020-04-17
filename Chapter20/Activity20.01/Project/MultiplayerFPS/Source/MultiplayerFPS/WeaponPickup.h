@@ -17,5 +17,5 @@ protected:
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Weapon Pickup")
 	int32 AmmoAmount;
 
-	virtual void OnPickedUp(class AFPSCharacter* Character);
+	virtual void OnPickedUp(class AFPSCharacter* Character) override;
 };

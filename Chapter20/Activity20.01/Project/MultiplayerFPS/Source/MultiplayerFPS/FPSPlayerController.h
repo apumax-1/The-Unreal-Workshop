@@ -25,6 +25,6 @@ public:
 	UFUNCTION(Client, Reliable)
 	void ClientNotifyKill(const FString& Name);	
 
-	UFUNCTION(NetMulticast, Reliable)
-	void MulticastShowScoreboard();
+	UFUNCTION(Client, Reliable)
+	void ClientShowScoreboard();
 };

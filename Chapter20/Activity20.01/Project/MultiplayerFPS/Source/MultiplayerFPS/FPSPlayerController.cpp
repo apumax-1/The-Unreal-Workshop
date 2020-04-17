@@ -33,7 +33,7 @@ void AFPSPlayerController::ClientNotifyKill_Implementation(const FString& Name)
 	}
 }
 
-void AFPSPlayerController::MulticastShowScoreboard_Implementation()
+void AFPSPlayerController::ClientShowScoreboard_Implementation()
 {
 	if (PlayerMenu != nullptr)
 	{

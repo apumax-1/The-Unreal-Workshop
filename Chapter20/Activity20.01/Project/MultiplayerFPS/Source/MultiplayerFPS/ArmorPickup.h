@@ -14,5 +14,5 @@ protected:
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Armor Pickup")
 	float ArmorAmount = 20.0f;
 
-	virtual void OnPickedUp(class AFPSCharacter* Character);
+	virtual void OnPickedUp(class AFPSCharacter* Character) override;
 };

@@ -56,7 +56,7 @@ void AMultiplayerFPSGameModeBase::HandleMatchHasEnded()
 			Pawn->Destroy();
 		}
 
-		FPSPlayerController->MulticastShowScoreboard();
+		FPSPlayerController->ClientShowScoreboard();
 	}
 
 	FTimerHandle TimerHandle;
@@ -99,15 +99,15 @@ void AMultiplayerFPSGameModeBase::OnKill(AController* KillerController, AControl
 		if (KillerPlayerState != nullptr)
 		{
 			KillerPlayerState->AddKill();
+		}
 
-			// Show the kill on the killer's HUD
+		// Show the kill on the killer's HUD
 
-			AFPSPlayerController* KillerFPSController = Cast<AFPSPlayerController>(KillerController);
+		AFPSPlayerController* KillerFPSController = Cast<AFPSPlayerController>(KillerController);
 
-			if (KillerFPSController != nullptr && VictimController != nullptr && VictimController->PlayerState != nullptr)
-			{
-				KillerFPSController->ClientNotifyKill(VictimController->PlayerState->GetPlayerName());
-			}
+		if (KillerFPSController != nullptr && VictimController != nullptr && VictimController->PlayerState != nullptr)
+		{
+			KillerFPSController->ClientNotifyKill(VictimController->PlayerState->GetPlayerName());
 		}
 	}
 
@@ -122,15 +122,15 @@ void AMultiplayerFPSGameModeBase::OnKill(AController* KillerController, AControl
 			VictimPlayerState->AddDeath();
 		}
 
+		APawn* Pawn = VictimController->GetPawn();
+
+		if (Pawn != nullptr)
+		{
+			Pawn->Destroy();
+		}
+
 		if (!HasWinner())
 		{
-			APawn* Pawn = VictimController->GetPawn();
-			
-			if (Pawn != nullptr)
-			{
-				Pawn->Destroy();
-			}
-
 			RestartPlayer(VictimController);
 		}
 	}
