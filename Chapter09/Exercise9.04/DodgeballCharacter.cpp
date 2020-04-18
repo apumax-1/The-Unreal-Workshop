@@ -9,6 +9,7 @@
 #include "GameFramework/CharacterMovementComponent.h"
 #include "GameFramework/Controller.h"
 #include "GameFramework/SpringArmComponent.h"
+#include "Kismet/KismetSystemLibrary.h"
 
 
 //////////////////////////////////////////////////////////////////////////
@@ -59,6 +60,14 @@ ADodgeballCharacter::ADodgeballCharacter()
 	// are set in the derived blueprint asset named MyCharacter (to avoid direct content references in C++)
 
 	HealthComponent = CreateDefaultSubobject<UHealthComponent>(TEXT("Health Component"));
+}
+
+void ADodgeballCharacter::OnDeath_Implementation()
+{
+	UKismetSystemLibrary::QuitGame(this,
+									   nullptr,
+									   EQuitPreference::Quit,
+									   true);
 }
 
 //////////////////////////////////////////////////////////////////////////
