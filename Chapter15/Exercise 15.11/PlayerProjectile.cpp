@@ -2,10 +2,6 @@
 
 
 #include "PlayerProjectile.h"
-#include "GameFramework/ProjectileMovementComponent.h"
-#include "Components/SphereComponent.h"
-#include "Components/StaticMeshComponent.h"
-#include "EnemyBase.h"
 
 // Sets default values
 APlayerProjectile::APlayerProjectile()
