@@ -11,7 +11,7 @@ APlayerProjectile::APlayerProjectile()
 {
 	CollisionComp = CreateDefaultSubobject<USphereComponent>(TEXT("SphereComp"));
 	CollisionComp->InitSphereRadius(15.0f);
-	CollisionComp->BodyInstance.SetCollisionProfileName("Projectile");
+	CollisionComp->BodyInstance.SetCollisionProfileName("BlockAll");
 	CollisionComp->OnComponentHit.AddDynamic(this, &APlayerProjectile::OnHit);
 
 	// Set as root component
