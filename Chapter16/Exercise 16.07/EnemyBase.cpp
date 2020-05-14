@@ -2,7 +2,6 @@
 
 
 #include "EnemyBase.h"
-#include "Engine/Classes/Kismet/GameplayStatics.h"
 
 void AEnemyBase::DestroyEnemy()
 {
