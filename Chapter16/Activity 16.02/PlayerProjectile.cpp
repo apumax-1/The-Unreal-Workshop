@@ -33,40 +33,11 @@ APlayerProjectile::APlayerProjectile()
 	MeshComp->AttachTo(RootComponent);
 
 	InitialLifeSpan = 3.0f;
-
-	ProjectileMovementSound = CreateDefaultSubobject<UAudioComponent>(TEXT("ProjectileMovementSound"));
-	ProjectileMovementSound->AttachTo(MeshComp);
-
-	ProjectileEffect = CreateDefaultSubobject<UParticleSystemComponent>(TEXT("ProjectileEffect"));
-	ProjectileEffect->AttachTo(MeshComp);
 }
 
 void APlayerProjectile::OnHit(UPrimitiveComponent* HitComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, FVector NormalImpulse, const FHitResult& Hit)
 {
-	AEnemyBase* Enemy = Cast<AEnemyBase>(OtherActor);
-	if (Enemy)
-	{
-		Enemy->DestroyEnemy();
-	}
 
-	ExplodeProjectile();
-}
-
-void APlayerProjectile::ExplodeProjectile()
-{
-	UWorld* World = GetWorld();
-	if (World)
-	{
-		if (DestroyEffect)
-		{
-			UGameplayStatics::SpawnEmitterAtLocation(World, DestroyEffect, MeshComp->GetComponentTransform());
-		}
-		if (DestroySound)
-		{
-			UGameplayStatics::SpawnSoundAtLocation(World, DestroySound, GetActorLocation());
-		}
-	}
-	Destroy();
 }
 
 
