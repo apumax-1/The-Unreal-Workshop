@@ -13,10 +13,6 @@ class SUPERSIDESCROLLER_API APlayerProjectile : public AActor
 
 private:
 
-	/** Sphere collision component */
-	UPROPERTY(VisibleDefaultsOnly, Category = Projectile)
-	class USphereComponent* CollisionComp;
-
 	/** Projectile movement component */
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Movement, meta = (AllowPrivateAccess = "true"))
 	class UProjectileMovementComponent* ProjectileMovement;
@@ -24,7 +20,8 @@ private:
 	/** Static mesh component */
 	UPROPERTY(VisibleDefaultsOnly, Category = Projectile)
 	class UStaticMeshComponent* MeshComp;
-	
+
+
 public:	
 	// Sets default values for this actor's properties
 	APlayerProjectile();
@@ -32,4 +29,9 @@ public:
 	/** called when projectile hits something */
 	UFUNCTION()
 	void OnHit(UPrimitiveComponent* HitComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, FVector NormalImpulse, const FHitResult& Hit);
+
+	/** Sphere collision component */
+	UPROPERTY(VisibleDefaultsOnly, Category = Projectile)
+	class USphereComponent* CollisionComp;
+
 };
