@@ -6,9 +6,6 @@
 #include "Components/SphereComponent.h"
 #include "Components/StaticMeshComponent.h"
 #include "EnemyBase.h"
-#include "Components/AudioComponent.h"
-#include "Particles/ParticleSystemComponent.h"
-#include "Engine/Classes/Kismet/GameplayStatics.h"
 
 // Sets default values
 APlayerProjectile::APlayerProjectile()
