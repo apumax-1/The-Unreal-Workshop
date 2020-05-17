@@ -24,7 +24,7 @@ private:
 	UPROPERTY(VisibleDefaultsOnly, Category = Sound)
 	class UAudioComponent* ProjectileMovementSound;
 
-	UPROPERTY(VisibleDefaultsOnly, Category = Sound)
+	UPROPERTY(VisibleDefaultsOnly, Category = Particle)
 	class UParticleSystemComponent* ProjectileEffect;
 
 
