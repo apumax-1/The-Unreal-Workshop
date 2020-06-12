@@ -21,7 +21,7 @@ protected:
 
 public:
 
-	void NativeOnInitialized() override;
+	virtual void NativeOnInitialized() override;
 
 	UPROPERTY(meta = (BindWidget))
 	class UButton* RestartButton;
