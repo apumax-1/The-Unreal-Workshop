@@ -26,6 +26,7 @@ protected:
 	// Returns whether the given actor can be seen
 	bool LookAtActor();
 
+	UPROPERTY()
 	AActor* TargetActor;
 
 	//Whether the enemy can currently see the target

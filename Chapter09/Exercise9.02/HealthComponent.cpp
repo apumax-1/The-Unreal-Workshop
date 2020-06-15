@@ -40,7 +40,7 @@ void UHealthComponent::LoseHealth(float Amount)
 	if (Health <= 0.f)
 	{
 		Health = 0.f;
-		UKismetSystemLibrary::QuitGame(GetOwner()->GetWorld(),
+		UKismetSystemLibrary::QuitGame(this,
 									   nullptr,
 									   EQuitPreference::Quit,
 									   true);
