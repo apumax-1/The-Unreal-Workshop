@@ -11,6 +11,7 @@ class APickupsGameMode : public AGameMode
 
 protected:
 
+	UPROPERTY()
 	class APickupsGameState* MyGameState;
 
 	APickupsGameMode();

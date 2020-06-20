@@ -4,6 +4,8 @@
 #include "FPSCharacter.h"
 #include "FPSPlayerController.h"
 #include "Kismet/GameplayStatics.h"
+#include "Engine/World.h"
+#include "Engine/Public/TimerManager.h"
 
 AMultiplayerFPSGameModeBase::AMultiplayerFPSGameModeBase()
 {

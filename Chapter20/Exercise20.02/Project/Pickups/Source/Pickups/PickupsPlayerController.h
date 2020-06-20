@@ -14,6 +14,7 @@ protected:
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Pickup Player Controller")
 	TSubclassOf<class UUserWidget> ScoreboardMenuClass;
 
+	UPROPERTY()
 	class UUserWidget* ScoreboardMenu;
 
 	virtual void BeginPlay() override;

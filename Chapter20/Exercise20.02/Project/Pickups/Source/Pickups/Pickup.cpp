@@ -1,6 +1,8 @@
 #include "Pickup.h"
 #include "PickupsCharacter.h"
 #include "PickupsGameState.h"
+#include "Components/StaticMeshComponent.h"
+#include "Engine/World.h"
 
 APickup::APickup()
 {

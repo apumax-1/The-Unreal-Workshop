@@ -1,5 +1,7 @@
 #include "Pickup.h"
 #include "FPSCharacter.h"
+#include "Components/StaticMeshComponent.h"
+#include "Engine/Public/TimerManager.h"
 
 APickup::APickup()
 {

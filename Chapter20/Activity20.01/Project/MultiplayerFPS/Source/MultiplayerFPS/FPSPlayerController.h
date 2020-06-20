@@ -14,6 +14,7 @@ protected:
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "FPS Player Controller")
 	TSubclassOf<class UPlayerMenu> PlayerMenuClass;
 
+	UPROPERTY()
 	class UPlayerMenu* PlayerMenu;
 
 	virtual void BeginPlay() override;

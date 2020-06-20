@@ -19,6 +19,7 @@ protected:
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "GF Instance Player Controller")
 	TSubclassOf<UUserWidget> MenuClass;
 
+	UPROPERTY()
 	UUserWidget* Menu;
 
 	virtual void BeginPlay() override;

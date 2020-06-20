@@ -5,6 +5,9 @@
 #include "UObject/ConstructorHelpers.h"
 #include "Kismet/GameplayStatics.h"
 #include "PickupsGameState.h"
+#include "Engine/World.h"
+#include "Engine/Public/TimerManager.h"
+#include "Engine/Engine.h"
 
 APickupsGameMode::APickupsGameMode()
 {

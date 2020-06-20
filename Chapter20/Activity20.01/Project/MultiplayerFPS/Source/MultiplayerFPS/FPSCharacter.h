@@ -76,6 +76,7 @@ protected:
 
 	// Game Mode
 
+	UPROPERTY()
 	class AMultiplayerFPSGameModeBase* GameMode;
 
 	// Constructor and overrided
