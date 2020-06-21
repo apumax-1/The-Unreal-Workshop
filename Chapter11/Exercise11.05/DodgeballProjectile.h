@@ -35,6 +35,10 @@ protected:
 	UPROPERTY(EditAnywhere, Category = Sound)
 	class USoundAttenuation* BounceSoundAttenuation;
 
+	// The particle system the dodgeball will spawn when it hits the player
+	UPROPERTY(EditAnywhere, Category = Particles)
+	class UParticleSystem* HitParticles;
+
 public:	
 
 	ADodgeballProjectile();
