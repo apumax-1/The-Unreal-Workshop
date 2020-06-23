@@ -17,8 +17,7 @@ AMusicManager::AMusicManager()
 void AMusicManager::BeginPlay()
 {
 	Super::BeginPlay();
-
-	AudioComponent->Play();
+	
 }
 
 // Called every frame

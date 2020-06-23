@@ -56,7 +56,7 @@ void ADodgeballProjectile::OnHit(UPrimitiveComponent * HitComp,
 											  BounceSound,
 											  GetActorLocation(),
 											  1.0f,
-											  1.0f,
+											  FMath::RandRange(0.7f, 1.3f)),
 											  0.0f,
 											  BounceSoundAttenuation);
 	}

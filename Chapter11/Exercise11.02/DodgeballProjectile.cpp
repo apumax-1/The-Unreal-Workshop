@@ -54,7 +54,9 @@ void ADodgeballProjectile::OnHit(UPrimitiveComponent * HitComp,
 	{
 		UGameplayStatics::PlaySoundAtLocation(this,
 											  BounceSound,
-											  GetActorLocation());
+											  GetActorLocation(),
+											  1.0f,
+											  FMath::RandRange(0.7f, 1.3f));
 	}
 	ADodgeballCharacter* Player = Cast<ADodgeballCharacter>(OtherActor);
 	if (Player != nullptr)
