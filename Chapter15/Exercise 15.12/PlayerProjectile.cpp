@@ -21,8 +21,8 @@ APlayerProjectile::APlayerProjectile()
 	ProjectileMovement = CreateDefaultSubobject<UProjectileMovementComponent>(TEXT("ProjectileComp"));
 	ProjectileMovement->UpdatedComponent = CollisionComp;
 	ProjectileMovement->ProjectileGravityScale = 0.0f;
-	ProjectileMovement->InitialSpeed = 500.0f;
-	ProjectileMovement->MaxSpeed = 500.0f;
+	ProjectileMovement->InitialSpeed = 800.0f;
+	ProjectileMovement->MaxSpeed = 800.0f;
 
 	MeshComp = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("MeshComp"));
 	MeshComp->AttachTo(RootComponent);
