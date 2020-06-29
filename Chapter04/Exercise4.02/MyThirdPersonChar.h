@@ -34,9 +34,6 @@ protected:
 	void MoveForward(float Value);
 	void MoveRight(float Value);
 
-	void TouchStarted(ETouchIndex::Type FingerIndex, FVector Location);
-	void TouchStopped(ETouchIndex::Type FingerIndex, FVector Location);
-
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;

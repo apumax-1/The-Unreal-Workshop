@@ -59,22 +59,6 @@ void AMyThirdPersonChar::SetupPlayerInputComponent(UInputComponent* PlayerInputC
 
 	PlayerInputComponent->BindAxis("MoveForward", this, &AMyThirdPersonChar::MoveForward);
 	PlayerInputComponent->BindAxis("MoveRight", this, &AMyThirdPersonChar::MoveRight);
-
-	PlayerInputComponent->BindAxis("Turn", this, &APawn::AddControllerYawInput);
-	PlayerInputComponent->BindAxis("LookUp", this, &APawn::AddControllerPitchInput);
-
-	PlayerInputComponent->BindTouch(IE_Pressed, this, &AMyThirdPersonChar::TouchStarted);
-	PlayerInputComponent->BindTouch(IE_Released, this, &AMyThirdPersonChar::TouchStopped);
-}
-
-void AMyThirdPersonChar::TouchStarted(ETouchIndex::Type FingerIndex, FVector Location)
-{
-	Jump();
-}
-
-void AMyThirdPersonChar::TouchStopped(ETouchIndex::Type FingerIndex, FVector Location)
-{
-	StopJumping();
 }
 
 void AMyThirdPersonChar::MoveForward(float Value)
