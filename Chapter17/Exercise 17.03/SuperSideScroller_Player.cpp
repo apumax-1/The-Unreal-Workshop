@@ -8,8 +8,6 @@
 #include "PlayerProjectile.h"
 #include "Engine/World.h"
 #include "Components/SphereComponent.h"
-#include "SuperSideScrollerGameMode.h"
-#include "Engine/EngineTypes.h"
 
 ASuperSideScroller_Player::ASuperSideScroller_Player()
 {
