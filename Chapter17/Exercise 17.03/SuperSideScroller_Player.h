@@ -42,15 +42,6 @@ public:
 
 	void IncrementNumberofCollectables(int value);
 
-	//void ResetNumberofCollectables();
-
-	//void IncreaseMovementPowerup();
-
-	//void EndPowerup();
-
-	//UFUNCTION(BlueprintPure)
-	//FTransform GetPlayerStartTransform() {return PlayerStart;	}
-
 private:
 	//Bool to control if we are sprinting. Failsafe.
 	bool bIsSprinting;
@@ -62,10 +53,4 @@ private:
 	TSubclassOf<class APlayerProjectile> PlayerProjectile;
 
 	int NumberofCollectables;
-
-	//bool bHasPowerupActive;
-
-	//FTimerHandle PowerupHandle;
-
-	//FTransform PlayerStart;
 };
