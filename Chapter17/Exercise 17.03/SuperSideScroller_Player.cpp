@@ -104,4 +104,6 @@ void ASuperSideScroller_Player::IncrementNumberofCollectables(int value)
 	{
 		NumberofCollectables = NewValue;
 	}
+	
+	UE_LOG(LogTemp, Warning, TEXT("Number of Coins: %d"), NewValue);
 }
