@@ -93,7 +93,7 @@ void ASuperSideScroller_Player::IncrementNumberofCollectables(int value)
 	}
 
 	int NewValue = NumberofCollectables + value;
-	if (NewValue <= 0)
+	if (NewValue < 0)
 	{
 		NumberofCollectables = 0;
 		return;
