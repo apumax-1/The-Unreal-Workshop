@@ -3,12 +3,10 @@
 
 #include "PickableActor_Collectable.h"
 #include "SuperSideScroller_Player.h"
-//#include "Components/StaticMeshComponent.h"
 
 void APickableActor_Collectable::BeginPlay()
 {
 	Super::BeginPlay();
-	//MeshComp->SetPhysicsLinearVelocity(FVector(0.0f, 0.0f, 300.0f), false);
 }
 
 void APickableActor_Collectable::PlayerPickedUp(class ASuperSideScroller_Player* Player)
