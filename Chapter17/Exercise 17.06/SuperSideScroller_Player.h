@@ -46,9 +46,6 @@ public:
 
 	void IncreaseMovementPowerup();
 
-	//UFUNCTION(BlueprintPure)
-	//FTransform GetPlayerStartTransform() {return PlayerStart;	}
-
 private:
 	//Bool to control if we are sprinting. Failsafe.
 	bool bIsSprinting;
@@ -64,6 +61,4 @@ private:
 	bool bHasPowerupActive;
 
 	FTimerHandle PowerupHandle;
-
-	//FTransform PlayerStart;
 };
