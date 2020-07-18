@@ -91,17 +91,10 @@ void ASuperSideScroller_Player::IncrementNumberofCollectables(int value)
 	{
 		return;
 	}
-
-	int NewValue = NumberofCollectables + value;
-	if (NewValue < 0)
-	{
-		NumberofCollectables = 0;
-		return;
-	}
 	else
 	{
-		NumberofCollectables = NewValue;
+		NumberofCollectables += value;
 	}
 	
-	UE_LOG(LogTemp, Warning, TEXT("Number of Coins: %d"), NewValue);
+	UE_LOG(LogTemp, Warning, TEXT("Number of Coins: %d"), NumberofCollectables);
 }
