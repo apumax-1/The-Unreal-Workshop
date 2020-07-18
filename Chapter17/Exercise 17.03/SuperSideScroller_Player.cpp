@@ -87,7 +87,7 @@ void ASuperSideScroller_Player::SpawnProjectile()
 
 void ASuperSideScroller_Player::IncrementNumberofCollectables(int value)
 {
-	if (value == 0)
+	if (value <= 0)
 	{
 		return;
 	}
