@@ -8,15 +8,11 @@
 #include "PlayerProjectile.h"
 #include "Engine/World.h"
 #include "Components/SphereComponent.h"
-//#include "SuperSideScrollerGameMode.h"
-//#include "Engine/EngineTypes.h"
 
 ASuperSideScroller_Player::ASuperSideScroller_Player()
 {
 	//Set sprinting to false by default.
 	bIsSprinting = false;
-
-	//bHasPowerupActive = false;
 
 	//Set our Max Walk Speed to 300.0f
 	GetCharacterMovement()->MaxWalkSpeed = 300.0f;
