@@ -30,12 +30,6 @@ private:
 	UFUNCTION()
 	void OnHit(UPrimitiveComponent* HitComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, FVector NormalImpulse, const FHitResult& Hit);
 
-	void AddCollectable(class ASuperSideScroller_Player* Player);
-
-	void PlayHitSound();
-
-	void PlayHitExplosion();
-
 	UPROPERTY(EditAnywhere)
 	bool bHasCollectable;
 
