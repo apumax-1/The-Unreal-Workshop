@@ -15,9 +15,9 @@ ASuperSideScroller_Brick::ASuperSideScroller_Brick()
 	RootComponent = BrickMesh;
 
 	BrickCollision = CreateDefaultSubobject<UBoxComponent>(TEXT("BrickCollision"));
-	BrickCollision->OnComponentHit.AddDynamic(this, &ASuperSideScroller_Brick::OnHit);
 	BrickCollision->SetCollisionProfileName("BlockAll");
 	BrickCollision->AttachTo(RootComponent);
+	BrickCollision->OnComponentHit.AddDynamic(this, &ASuperSideScroller_Brick::OnHit);
 }
 
 // Called when the game starts or when spawned
