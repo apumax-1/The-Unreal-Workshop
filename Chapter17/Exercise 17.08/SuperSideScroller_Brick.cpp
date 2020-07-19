@@ -12,22 +12,21 @@
 ASuperSideScroller_Brick::ASuperSideScroller_Brick()
 {
 	BrickMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("BrickMesh"));
-	BrickMesh->SetCollisionEnabled(ECollisionEnabled::NoCollision);
+	BrickMesh->SetCollisionProfileName("BlockAll");
 
 	// Set as root component
 	RootComponent = BrickMesh;
 
 	BrickCollision = CreateDefaultSubobject<UBoxComponent>(TEXT("BrickCollision"));
-	BrickCollision->OnComponentHit.AddDynamic(this, &ASuperSideScroller_Brick::OnHit);
 	BrickCollision->SetCollisionProfileName("BlockAll");
 	BrickCollision->AttachTo(RootComponent);
+	BrickCollision->OnComponentHit.AddDynamic(this, &ASuperSideScroller_Brick::OnHit);
 }
 
 // Called when the game starts or when spawned
 void ASuperSideScroller_Brick::BeginPlay()
 {
 	Super::BeginPlay();
-	
 }
 
 void ASuperSideScroller_Brick::OnHit(UPrimitiveComponent* HitComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, FVector NormalImpulse, const FHitResult& Hit)
@@ -44,10 +43,7 @@ void ASuperSideScroller_Brick::OnHit(UPrimitiveComponent* HitComp, AActor* Other
 
 void ASuperSideScroller_Brick::AddCollectable(class ASuperSideScroller_Player* Player)
 {
-	if (bHasCollectable)
-	{
-		Player->IncrementNumberofCollectables(CollectableValue);
-	}
+	Player->IncrementNumberofCollectables(CollectableValue);
 }
 
 void ASuperSideScroller_Brick::PlayHitSound()
