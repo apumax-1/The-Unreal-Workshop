@@ -3,6 +3,7 @@
 
 #include "EnemyBase.h"
 #include "Kismet/GameplayStatics.h"
+#include "Engine/World.h"
 
 void AEnemyBase::DestroyEnemy()
 {
