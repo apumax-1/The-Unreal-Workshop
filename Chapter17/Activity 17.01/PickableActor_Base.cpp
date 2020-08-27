@@ -34,7 +34,7 @@ void APickableActor_Base::BeginPlay()
 
 void APickableActor_Base::PlayerPickedUp(class ASuperSideScroller_Player* Player)
 {
-	UWorld* World = GetWorld();
+	const UWorld* World = GetWorld();
 	if (World)
 	{
 		if (PickupSound)
