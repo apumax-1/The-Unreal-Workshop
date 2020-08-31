@@ -27,6 +27,10 @@ protected:
 	UPROPERTY(EditAnywhere, Category = Damage)
 	float Damage = 34.f;
 
+	// The sound the dodgeball will make when it bounces off of a surface
+	UPROPERTY(EditAnywhere, Category = Sound)
+	class USoundBase* BounceSound;
+
 public:	
 
 	ADodgeballProjectile();
